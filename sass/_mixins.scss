@@ -1,0 +1,4 @@
+@mixin style-link-text($col) {
+  text-decoration: none;
+  color: $col;
+}

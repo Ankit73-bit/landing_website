@@ -1,0 +1,38 @@
+.header {
+  height: 100%;
+  width: 100%;
+}
+
+.navbar {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+
+.logo {
+  margin-left: 5px;
+  font-size: 20px;
+  @include style-link-text($dark-black-1);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+
+  & li {
+    margin: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    & a {
+      @include style-link-text($dark-black-1);
+    }
+  }
+}
