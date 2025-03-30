@@ -3,6 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .hero-text {
@@ -12,40 +18,116 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 20px;
+  }
 
   & h1 {
     font-size: 48px;
     color: $dark-black-1;
     padding: 20px;
 
-    // & span {
-    // }
+    @media (max-width: 800px) {
+      font-size: 34px;
+      padding: 24px;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 24px;
+      padding: 6px;
+    }
   }
 
   & p {
     font-size: 24px;
     color: $dark-black-2;
-    text-align: center;
     padding: 20px;
+
+    @media (max-width: 800px) {
+      font-size: 16px;
+      padding: 12px;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 12px;
+      padding: 4px;
+    }
   }
 }
 
 .hero-image {
   width: 50%;
   height: 100%;
-  //   border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+
   & img {
-    width: 400px;
-    height: auto;
+    height: 400px;
+    width: auto;
     object-fit: cover;
     object-position: bottom;
     border-radius: 20px;
-    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     padding: 5px;
+
+    @media (max-width: 800px) {
+      height: 260px;
+      width: auto;
+    }
+
+    @media (max-width: 400px) {
+      height: 200px;
+      width: auto;
+    }
+  }
+}
+
+.btn {
+  @include hover-style-btn("transparent");
+
+  //hover effect 2
+  &--hoverEffect2 {
+    display: inline-block;
+    z-index: 1;
+    color: #ff3c83;
+    // border:3px solid #FF3C83;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      opacity: 0;
+      transition: 0.5s all ease;
+      box-sizing: border-box;
+    }
+
+    &:hover::before {
+      border-radius: 4px;
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #fd297a, #9424f0);
+      opacity: 1;
+      z-index: -1;
+    }
+  }
+
+  @media (max-width: 800px) {
+    font-size: 12px;
   }
 }
